@@ -157,7 +157,12 @@ app.post("/register", (req, res) => {
 			if (err) {
 				console.log(err);
 			} else {
-				res.render("secrets");
+				let data = {
+					name:eil,
+					resultArray : []
+				};
+				console.log(data);
+				res.render("secrets",data);
 			}
 		})
 
