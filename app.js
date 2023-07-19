@@ -13,7 +13,6 @@ const saltRounds = 10;
 
 
 app.use(express.static("public"));
-app.use(cookieParser());
 app.use(session({
 	secret: 'ajshdj3493u23', // Replace with your own secret key for session encryption
 	resave: false,
@@ -69,7 +68,7 @@ app.post("/submit", (req, res) => {
 			message: secret,
 			username: user
 		});
-		//console.log(newM);
+		console.log(newM);
 		newM.save((err) => {
 			if (err)
 				res.send("unable to same secrects");
@@ -157,6 +156,8 @@ app.post("/register", (req, res) => {
 			if (err) {
 				console.log(err);
 			} else {
+				req.session.user = eil;
+
 				let data = {
 					name:eil,
 					resultArray : []
